@@ -4,18 +4,20 @@ import { SubscribeService } from 'src/app/Services/subscribe.service';
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css']
+  styleUrls: ['./hero.component.css'],
+  providers : [SubscribeService]
 })
 export class HeroComponent implements OnInit {
 
-  constructor() { }
+  constructor(private subscribeval : SubscribeService) { }
 
   ngOnInit(): void {
   }
 
   SubscribeNow(){
-    let subscribeval = new SubscribeService();
-    subscribeval.onSubscribeClicked('Weekly');
+    // let subscribeval = new SubscribeService();
+    
+    this.subscribeval.onSubscribeClicked('Weekly');
   }
 
 }
