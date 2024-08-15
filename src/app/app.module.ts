@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,8 @@ import { UserListComponent } from './header/admin/user-list/user-list.component'
 import { FormsModule } from '@angular/forms';
 import { UserService } from './Services/user.service';
 import { LoggerService } from './Services/logger.service';
+
+export const USER_TOKEN = new InjectionToken<UserService>('USER_SERVICE'); //USER_SERVICE is the description we are giving.
 
 @NgModule({
   declarations: [
@@ -30,8 +32,7 @@ import { LoggerService } from './Services/logger.service';
     FormsModule
   ],
   providers: [SubscribeService,
-    {provide : 'USER_SERVICE', useClass : UserService},
-    LoggerService],
+    {provide : USER_TOKEN, useClass : UserService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

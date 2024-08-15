@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SubscribeService } from 'src/app/Services/subscribe.service';
 
 @Component({
@@ -8,7 +8,8 @@ import { SubscribeService } from 'src/app/Services/subscribe.service';
 })
 export class HeroComponent implements OnInit {
 
-  constructor(private subscribeval : SubscribeService) { }
+  // constructor(private subscribeval : SubscribeService) { } //instead of using this consturctor we can use new way
+  subscribeval = inject(SubscribeService);
 
   ngOnInit(): void {
   }

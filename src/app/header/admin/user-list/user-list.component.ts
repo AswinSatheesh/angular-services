@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
+import {USER_TOKEN} from './../../../app.module'
 
 @Component({
   selector: 'app-user-list',
@@ -7,7 +8,7 @@ import { UserService } from 'src/app/Services/user.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent {
-  constructor(@Inject('USER_SERVICE') private userService : UserService){
+  constructor(@Inject(USER_TOKEN) private userService : UserService){
 
   }
   userList = this.userService.GetAllUsers();

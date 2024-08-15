@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
+import {USER_TOKEN} from './../../app.module'
 
 @Component({
   selector: 'app-admin',
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class AdminComponent{
 
-  constructor(@Inject('USER_SERVICE') private userService : UserService){
+  constructor(@Inject(USER_TOKEN) private userService : UserService){
 
   }
 
