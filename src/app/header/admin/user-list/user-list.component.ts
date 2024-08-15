@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { UserService } from 'src/app/Services/user.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent {
-  constructor(private userService : UserService){
+  constructor(@Inject('USER_SERVICE') private userService : UserService){
 
   }
   userList = this.userService.GetAllUsers();

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class AdminComponent{
 
-  constructor(private userService : UserService){
+  constructor(@Inject('USER_SERVICE') private userService : UserService){
 
   }
 

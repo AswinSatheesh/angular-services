@@ -29,7 +29,9 @@ import { LoggerService } from './Services/logger.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [SubscribeService,UserService,LoggerService],
+  providers: [SubscribeService,
+    {provide : 'USER_SERVICE', useClass : UserService},
+    LoggerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
