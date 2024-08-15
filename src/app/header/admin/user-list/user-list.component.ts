@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
 import {USER_TOKEN} from './../../../app.module'
+import { User } from 'src/app/Models/User';
 
 @Component({
   selector: 'app-user-list',
@@ -13,4 +14,7 @@ export class UserListComponent {
   }
   userList = this.userService.GetAllUsers();
 
+  onClickUserList(user : User){
+    this.userService.onShowUserList(user);
+  }
 }
