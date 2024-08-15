@@ -4,17 +4,29 @@ import { SubscribeService } from '../Services/subscribe.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
-  providers: [SubscribeService]
+  styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent  {
 
-  constructor(private subscribeval : SubscribeService) { }
+  constructor(private subval : SubscribeService){
 
-  ngOnInit(): void {
   }
-  clickSubscribe(){
-    // let subscribeval = new SubscribeService(); //do not use like this
-    this.subscribeval.onSubscribeClicked('monthly');
+
+  SubscribeNow(){
+    console.log("working");
+    
+    this.subval.onSubscribeClicked('Quaterly');
+  }
+
+  selectedTab: string = 'home';
+
+  //When HOME Link is clicked
+  HomeClicked(){
+    this.selectedTab = 'home';
+  }
+
+  //When Admin Link is clicked
+  AdminClicked(){
+    this.selectedTab = 'admin';
   }
 }
